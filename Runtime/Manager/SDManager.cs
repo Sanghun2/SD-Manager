@@ -6,7 +6,7 @@ public class SDManager
 {
     private Dictionary<Type, SDContainerBase> sdContainerDict = new Dictionary<Type, SDContainerBase>();
 
-    public bool TryGetSD<TSD>(string findKey, out TSD targetSD) where TSD : SD {
+    public bool TryGetSD<TSD>(string findKey, out TSD targetSD) where TSD : SDBase {
         Type type = typeof(TSD);
         if (sdContainerDict.TryGetValue(type, out var containerBase)) {
             var tsd = containerBase as SDContainerBase<TSD>;
@@ -22,7 +22,7 @@ public class SDManager
         return false;
     }
 
-    public bool TryRegisterSD<TSD>(SDContainerBase<TSD> sdContainerBase) where TSD : SD {
+    public bool TryRegisterSD<TSD>(SDContainerBase<TSD> sdContainerBase) where TSD : SDBase {
         if (sdContainerDict.TryAdd(sdContainerBase.GetType(), sdContainerBase)) {
             sdContainerBase.InitSD();
             return true;

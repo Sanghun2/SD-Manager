@@ -9,7 +9,7 @@ public abstract class SDContainerBase
     public abstract void ReleaseSD();
 }
 
-public abstract class SDContainerBase<TSD> : SDContainerBase where TSD : SD
+public abstract class SDContainerBase<TSD> : SDContainerBase where TSD : SDBase
 {
     public enum Process {
         Available,
