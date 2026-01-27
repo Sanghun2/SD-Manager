@@ -6,6 +6,16 @@ public class SDManager
 {
     private Dictionary<Type, SDContainerBase> sdContainerDict = new Dictionary<Type, SDContainerBase>();
 
+
+    public int TryGetCount<TSD>() where TSD : SDBase {
+        if (TryGetContainer(out SDContainerBase<TSD> container)) {
+            return container.Count;
+        }
+
+        int errorResult = -1;
+        Debug.LogError($"<color=red>{typeof(TSD)}에 해당하는 sd container를 찾을 수 없음</color>");
+        return errorResult;
+    }
     public bool TryGetSD<TSD>(string findKey, out TSD targetSD) where TSD : SDBase {
         Type type = typeof(TSD);
         if (sdContainerDict.TryGetValue(type, out var containerBase)) {
@@ -35,5 +45,16 @@ public class SDManager
         foreach (var sdContainerPair in sdContainerDict) {
             sdContainerPair.Value.ReleaseSD();
         }
+    }
+
+
+    private bool TryGetContainer<TSD>(out SDContainerBase<TSD> container) where TSD : SDBase {
+        if (sdContainerDict.TryGetValue(typeof(TSD), out var containerBase)) { // 특정 type container찾는 부분 함수로 빼기
+            container = containerBase as SDContainerBase<TSD>;
+            return true;
+        }
+
+        container = null;
+        return false;
     }
 }

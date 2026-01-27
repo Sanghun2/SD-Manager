@@ -19,6 +19,7 @@ public abstract class SDContainerBase<TSD> : SDContainerBase where TSD : SDBase
 
     public string SDResourcePath => _sdResourcePath;
     public bool IsInit => _isInit;
+    public int Count => sdDict.Count;
 
     private Dictionary<string, TSD> sdDict = new Dictionary<string, TSD>();
     private Process currentProcess;
