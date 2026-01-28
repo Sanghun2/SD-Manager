@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
 
-public abstract class SDBase : ScriptableObject
+namespace BilliotGames
 {
-    public string ID => id;
+    public abstract class SDBase : ScriptableObject
+    {
+        public string ID => id;
 
-    [SerializeField] string id;
+        [SerializeField] string id;
+    }
 }
