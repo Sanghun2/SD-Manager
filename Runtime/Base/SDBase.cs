@@ -6,11 +6,11 @@ namespace BilliotGames
     public abstract class SDBase : ScriptableObject
     {
         public string ID => id;
-        public string Description => descripiton;
         public string DisplayName => displayName;
+        public string Description => descripiton;
 
         [SerializeField] protected string id;
-        [SerializeField] protected string descripiton;
         [SerializeField] protected string displayName;
+        [SerializeField] protected string descripiton;
     }
 }
