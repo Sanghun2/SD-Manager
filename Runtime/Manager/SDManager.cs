@@ -35,7 +35,7 @@ namespace BilliotGames
         }
 
         public bool TryRegisterSD<TSD>(SDContainerBase<TSD> sdContainerBase) where TSD : SDBase {
-            if (sdContainerDict.TryAdd(sdContainerBase.GetType(), sdContainerBase)) {
+            if (sdContainerDict.TryAdd(typeof(TSD), sdContainerBase)) {
                 sdContainerBase.InitSD();
                 return true;
             }
