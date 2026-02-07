@@ -11,6 +11,7 @@ namespace BilliotGames
 
         [SerializeField] protected string id;
         [SerializeField] protected string displayName;
+        [TextArea(1, 10)]
         [SerializeField] protected string descripiton;
     }
 }
