@@ -23,6 +23,7 @@ namespace BilliotGames
         public string SDResourcePath => _sdResourcePath;
         public bool IsInit => _isInit;
         public int Count => sdDict.Count;
+        public IReadOnlyDictionary<string, TSD> SDDict => sdDict;
 
         private Dictionary<string, TSD> sdDict = new Dictionary<string, TSD>();
         private Process currentProcess;

@@ -8,7 +8,6 @@ namespace BilliotGames
     {
         private Dictionary<Type, SDContainerBase> sdContainerDict = new Dictionary<Type, SDContainerBase>();
 
-
         public int TryGetCount<TSD>() where TSD : SDBase {
             if (TryGetContainer(out SDContainerBase<TSD> container)) {
                 return container.Count;
