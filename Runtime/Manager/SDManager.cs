@@ -49,7 +49,7 @@ namespace BilliotGames
         }
 
 
-        private bool TryGetContainer<TSD>(out SDContainerBase<TSD> container) where TSD : SDBase {
+        public bool TryGetContainer<TSD>(out SDContainerBase<TSD> container) where TSD : SDBase {
             if (sdContainerDict.TryGetValue(typeof(TSD), out var containerBase)) { // 특정 type container찾는 부분 함수로 빼기
                 container = containerBase as SDContainerBase<TSD>;
                 return true;
