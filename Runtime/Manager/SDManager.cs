@@ -18,8 +18,8 @@ namespace BilliotGames
             return errorResult;
         }
         public bool TryGetSD<TSD>(string findKey, out TSD targetSD) where TSD : SDBase {
-            Type type = typeof(TSD);
-            if (sdContainerDict.TryGetValue(type, out var containerBase)) {
+            Type sdType = typeof(TSD);
+            if (sdContainerDict.TryGetValue(sdType, out var containerBase)) {
                 var tsd = containerBase as SDContainerBase<TSD>;
                 if (tsd.TryGetSD(findKey, out targetSD)) {
                     return true;
@@ -28,7 +28,7 @@ namespace BilliotGames
                 Debug.LogError($"<color=red>{findKey}에 해당하는 targetSD가 없음</color>");
             }
 
-            Debug.LogError($"<color=red>{type.GetType()}에 해당하는 SD ContainerBase가 없음</color>");
+            Debug.LogError($"<color=red>{typeof(TSD)}에 해당하는 SD ContainerBase가 없음</color>");
             targetSD = null;
             return false;
         }
@@ -39,7 +39,7 @@ namespace BilliotGames
                 return true;
             }
 
-            Debug.LogError($"<color=red>SD container base [{sdContainerBase.GetType()}] register failed</color>");
+            Debug.LogError($"<color=red>SD container base [{typeof(SDContainerBase<TSD>)}] register failed</color>");
             return false;
         }
         public void ReleaseSDs() {
@@ -50,7 +50,7 @@ namespace BilliotGames
 
 
         public bool TryGetContainer<TSD>(out SDContainerBase<TSD> container) where TSD : SDBase {
-            if (sdContainerDict.TryGetValue(typeof(TSD), out var containerBase)) { // 특정 type container찾는 부분 함수로 빼기
+            if (sdContainerDict.TryGetValue(typeof(TSD), out var containerBase)) { // 특정 sdType container찾는 부분 함수로 빼기
                 container = containerBase as SDContainerBase<TSD>;
                 return true;
             }
