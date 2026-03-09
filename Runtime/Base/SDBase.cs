@@ -18,8 +18,8 @@ namespace BilliotGames
         [TextArea(1, 10)]
         [SerializeField] protected string descripiton;
 
-#if UNITY_EDITOR
         protected void RenameAsset(string newName, string prefix = null, string suffix = null) {
+#if UNITY_EDITOR
             if (string.IsNullOrWhiteSpace(newName))
                 return;
 
@@ -53,7 +53,7 @@ namespace BilliotGames
 
                 AssetDatabase.SaveAssets();
             };
-        }
 #endif
+        }
     }
 }
