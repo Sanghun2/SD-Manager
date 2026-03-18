@@ -1,6 +1,6 @@
 ﻿{
   "name": "com.billiotgames.sdmanager",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "displayName": "SD Manager",
   "description": "Scriptable Object로 인게임 Data를 관리하는 manager입니다.",
   "unity": "6000.2",
