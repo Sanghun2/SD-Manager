@@ -53,7 +53,7 @@ namespace BilliotGames
                 var targetSD = loadedSDs[i];
                 string key = GenerateFindKey(targetSD.ID); // 이 부분 따로 커스텀 할 수 있게 만들어야 함
                 if (!sdDict.TryAdd(key, targetSD)) {
-                    Debug.LogError($"<color=red>{key} add dictionary failed</color>");
+                    Debug.LogError($"<color=red>key ({key}) of type ({typeof(TSD)}) add dictionary failed</color>");
                 }
             }
 
