@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
+using System;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -10,10 +12,14 @@ namespace BilliotGames
     public abstract class SDBase : ScriptableObject
     {
         public string ID => id;
+        public string DisplayText => displayText;
+        [Obsolete]
         public string DisplayName => displayName;
         public string Description => descripiton;
 
         [SerializeField] protected string id;
+        [SerializeField] protected string displayText;
+        [Obsolete]
         [SerializeField] protected string displayName;
         [TextArea(1, 10)]
         [SerializeField] protected string descripiton;
