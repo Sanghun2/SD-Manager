@@ -13,14 +13,10 @@ namespace BilliotGames
     {
         public string ID => id;
         public string DisplayText => displayText;
-        [Obsolete]
-        public string DisplayName => displayName;
         public string Description => descripiton;
 
         [SerializeField] protected string id;
         [SerializeField] protected string displayText;
-        [Obsolete]
-        [SerializeField] protected string displayName;
         [TextArea(1, 10)]
         [SerializeField] protected string descripiton;
 
