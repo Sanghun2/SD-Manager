@@ -61,11 +61,5 @@ namespace BilliotGames
             };
 #endif
         }
-
-        protected virtual void OnValidate() {
-            if (string.IsNullOrEmpty(displayText) && !string.IsNullOrEmpty(displayName)) {
-                displayText = displayName;
-            }
-        }
     }
 }
