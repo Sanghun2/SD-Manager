@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -14,11 +16,13 @@ namespace BilliotGames
         public string ID => id;
         public string DisplayText => displayText;
         public string Description => descripiton;
+        public IReadOnlyList<CategorySD> Categories => categoryList;
 
         [SerializeField] protected string id;
         [SerializeField] protected string displayText;
         [TextArea(1, 10)]
         [SerializeField] protected string descripiton;
+        [SerializeField] protected List<CategorySD> categoryList = new List<CategorySD>();
 
         protected void RenameAsset(string newName, string prefix = null, string suffix = null) {
 #if UNITY_EDITOR

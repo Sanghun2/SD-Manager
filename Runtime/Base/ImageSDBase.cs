@@ -6,6 +6,6 @@ namespace BilliotGames
     {
         public Sprite Image => image;
 
-        [SerializeField] Sprite image;
+        [SerializeField] protected Sprite image;
     }
 }
