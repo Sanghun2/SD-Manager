@@ -4,7 +4,7 @@ namespace BilliotGames
 {
     public abstract class ImageSDBase : SDBase
     {
-        public Sprite Image => image;
+        public virtual Sprite Image => image;
 
         [SerializeField] protected Sprite image;
     }
